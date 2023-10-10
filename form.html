@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF;
+}
+
+#surveyForm {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    resize: vertical; 
+}
+
+
+    
+</style>
+
+<body>
+    <h1>Survey Form</h1>
+    <form id="surveyForm" onsubmit="submitForm(); return false;">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required><br><br>
+
+        <label for="country">Country:</label>
+        <select id="country" required>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="INDIA">INDIA</option>
+            <option value="RUSSIA">RUSSIA</option>
+            <option value="DUBAI">D<option value="USA">USA</option>
+            
+        </select><br><br>
+
+        <label>Gender:</label><br>
+        <input type="checkbox" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="checkbox" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="checkbox" id="other" name="gender" value="Other">
+        <label for="other">Other</label><br><br>
+
+        <label for="profession">Profession:</label>
+        <input type="text" id="profession" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br><br>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" required><br><br>
+          
+          <label>1. Is this the first time you are using our products and services?</label><br>
+        <input type="radio" id="firstTimeYes" name="firstTime" value="Yes">
+        <label for="firstTimeYes">Yes</label>
+        <input type="radio" id="firstTimeNo" name="firstTime" value="No">
+        <label for="firstTimeNo">No</label><br><br>
+          
+          <label>2. Would you recommend our products and services to your friends and colleagues?</label><br>
+        <input type="radio" id="recommendYes" name="recommend" value="Yes">
+        <label for="recommendYes">Yes</label>
+        <input type="radio" id="recommendNo" name="recommend" value="No">
+        <label for="recommendNo">No</label><br><br>
+          <label>3. How satisfied are you with our company overall?</label><br>
+        <input type="radio" id="satisfactionSatisfied" name="satisfaction" value="Satisfied">
+        <label for="satisfactionSatisfied">Satisfied</label>
+        <input type="radio" id="satisfactionUndecided" name="satisfaction" value="Undecided">
+        <label for="satisfactionUndecided">Undecided</label>
+        <input type="radio" id="satisfactionUnsatisfied" name="satisfaction" value="Unsatisfied">
+        <label for="satisfactionUnsatisfied">Unsatisfied</label><br><br>
+
+        <label>4. Do you have any suggestions to improve our service?</label><br>
+        <textarea id="suggestions" rows="4" cols="50"></textarea><br><br>
+
+          
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+    <script>
+        function submitForm() {
+            
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var dob = document.getElementById("dob").value;
+            var country = document.getElementById("country").value;
+            var gender = document.querySelectorAll('input[name="gender"]:checked');
+            var profession = document.getElementById("profession").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+
+            
+
+            
+            var popupMessage = "First Name: " + firstName + "\n" +
+                                "Last Name: " + lastName + "\n" +
+                                "Date of Birth: " + dob + "\n" +
+                                "Country: " + country + "\n" +
+                                "Gender: ";
+            for (var i = 0; i < gender.length; i++) {
+                popupMessage += gender[i].value + ", ";
+            }
+            popupMessage = popupMessage.slice(0, -2); 
+            popupMessage += "\nProfession: " + profession + "\n" +
+                            "Email: " + email + "\n" +
+                            "Mobile Number: " + mobile;
+
+            alert(popupMessage);
+
+            
+            document.getElementById("surveyForm").reset();
+        }
+    </script>
+</body>
+</html>

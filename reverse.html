@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse the word</title>
+</head>
+<body>
+    <!-- <script>
+   function reverseWords(sentence){
+   sentence=string(sentence);
+    const words=sentence.spilt('');
+    const reversedWords=[];
+
+    for (const word of words){
+        let reverseWord ='';
+
+        for (let i=word .lenght -1;i>0;i--){
+            reverseWord+=word[i];
+        }
+         reverseWords.push(reverseWords);
+        
+    }
+    const reversedSentence=reversedWords.join('');
+    return reversedSentence;
+   }
+   const inputSentence="This is the sunny day";
+   const reversedSentence=reverseWords(inputSentence);
+   console.log(reversedSentence);
+    </script> -->
+    <script>
+        // const str="This is the sunny day";
+        // const reveredStr=Array.from(str).reverse().join("");
+        // console.log(reversedStr);
+     const str="This is a sunny day";
+     let reversedStr=str.split('')
+     .map(word=>word.split('').reverse().join(''))
+     .join('');
+     console.log(reversedStr);
+
+    </script>
+</body>
+</html>
